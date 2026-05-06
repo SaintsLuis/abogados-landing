@@ -34,7 +34,7 @@ export const COPY: CopyData = {
       label: "Trusted across",
       countries: "Representing clients from 62 countries",
       langs: "Counsel available in English, Spanish & Portuguese",
-      member: "AILA Member · State Bar of California",
+      member: "AILA Member · NJ State Bar · NY State Bar",
       since: "Practicing since 1998"
     },
     practice: {
@@ -71,10 +71,10 @@ export const COPY: CopyData = {
       eyebrow: "The partners",
       title: "Counsel that has lived this story.",
       members: [
-        { name: "Camila Vargas", role: "Founding Partner", bio: "Born in Bogotá, naturalized in 2003. Former AILA chapter chair. 20+ years in deportation defense.", lang: "ES · EN" },
-        { name: "David Hartley", role: "Partner, Employment", bio: "Authored guidance cited by USCIS on O-1 standards. Represents Fortune 100 clients and solo founders alike.", lang: "EN" },
+        { name: "Camila Vargas", role: "Founding Partner", bio: "Born in Bogotá, naturalized in 2003. Former AILA chapter chair. 20+ years in deportation defense across Newark and New York courts.", lang: "ES · EN" },
+        { name: "David Hartley", role: "Partner, Employment", bio: "Authored guidance cited by USCIS on O-1 standards. Represents Fortune 100 clients and solo founders in the tri-state area.", lang: "EN" },
         { name: "Aïcha Ndiaye", role: "Partner, Asylum", bio: "Former UNHCR fellow. Trauma-informed practice for clients from West Africa, the Caribbean, and Central America.", lang: "EN · FR" },
-        { name: "Mateo Solano", role: "Partner, Family", bio: "Son of Salvadoran refugees. Speaks at community clinics every month. Believes paperwork is a love language.", lang: "ES · EN · PT" }
+        { name: "Mateo Solano", role: "Partner, Family", bio: "Son of Salvadoran refugees. Runs monthly clinics across Jersey City and Philadelphia. Believes paperwork is a love language.", lang: "ES · EN · PT" }
       ]
     },
     stories: {
@@ -84,9 +84,9 @@ export const COPY: CopyData = {
       next: "Next story",
       story: "Story",
       items: [
-        { quote: "We waited eleven years for our green cards. Sera filed our case and we had approvals in fourteen months. My mother cried at the airport.", who: "R. & L. — Family-based", country: "Philippines → California" },
-        { quote: "I am a researcher. I had been told my work wasn't 'extraordinary' enough. Sera disagreed. My O-1 was approved on the first try.", who: "Dr. P. — O-1", country: "India → Massachusetts" },
-        { quote: "They fought for me when ICE came at 5 a.m. Cancellation of removal granted. I am still here, still working, still raising my kids.", who: "J. — Removal defense", country: "Guatemala → Texas" },
+        { quote: "We waited eleven years for our green cards. Sera filed our case and we had approvals in fourteen months. My mother cried at the airport.", who: "R. & L. — Family-based", country: "Philippines → New Jersey" },
+        { quote: "I am a researcher. I had been told my work wasn't 'extraordinary' enough. Sera disagreed. My O-1 was approved on the first try.", who: "Dr. P. — O-1", country: "India → New York" },
+        { quote: "They fought for me when ICE came at 5 a.m. Cancellation of removal granted. I am still here, still working, still raising my kids.", who: "J. — Removal defense", country: "Guatemala → New Jersey" },
         { quote: "I took the oath in March. Twenty-three years after I arrived. They sent flowers to the ceremony.", who: "Mrs. O. — Naturalization", country: "Nigeria → New York" }
       ]
     },
@@ -118,13 +118,13 @@ export const COPY: CopyData = {
       title: "Begin your case today.",
       sub: "Call, write, or visit. We respond to every inquiry within one business day.",
       addr_t: "Main office",
-      addr: "1180 Mission St, Suite 400 · San Francisco, CA 94103",
+      addr: "1 Gateway Center, Suite 800 · Newark, NJ 07102",
       hours_t: "Hours",
-      hours: "Mon–Fri · 8:30 am – 6:30 pm PT",
+      hours: "Mon–Fri · 8:30 am – 6:30 pm ET",
       tel_t: "Phone",
-      tel: "+1 (415) 555-0140",
+      tel: "+1 (973) 555-0140",
       wa_t: "WhatsApp",
-      wa: "+1 (415) 555-0142",
+      wa: "+1 (973) 555-0142",
       mail_t: "Email",
       mail: "hello@sera-immigration.law"
     },
@@ -175,7 +175,7 @@ export const COPY: CopyData = {
       label: "Confianza en",
       countries: "Representando clientes de más de 62 países",
       langs: "Atención en español, inglés y portugués",
-      member: "Miembro AILA · Colegio de Abogados de California",
+      member: "Miembro AILA · NJ State Bar · NY State Bar",
       since: "Ejerciendo desde 1998"
     },
     practice: {
@@ -212,10 +212,10 @@ export const COPY: CopyData = {
       eyebrow: "Los socios",
       title: "Asesoría que ha vivido esta historia.",
       members: [
-        { name: "Camila Vargas", role: "Socia Fundadora", bio: "Nacida en Bogotá, naturalizada en 2003. Ex presidenta del capítulo AILA. Más de 20 años en defensa de deportación.", lang: "ES · EN" },
-        { name: "David Hartley", role: "Socio, Laboral", bio: "Autor de directrices citadas por USCIS sobre estándares O-1. Representa a clientes Fortune 100 y fundadores por igual.", lang: "EN" },
+        { name: "Camila Vargas", role: "Socia Fundadora", bio: "Nacida en Bogotá, naturalizada en 2003. Ex presidenta del capítulo AILA. Más de 20 años en defensa de deportación en los tribunales de Newark y Nueva York.", lang: "ES · EN" },
+        { name: "David Hartley", role: "Socio, Laboral", bio: "Autor de directrices citadas por USCIS sobre estándares O-1. Representa a clientes Fortune 100 y fundadores en el área triestatal.", lang: "EN" },
         { name: "Aïcha Ndiaye", role: "Socia, Asilo", bio: "Ex becaria de ACNUR. Práctica consciente del trauma para clientes de África Occidental, el Caribe y Centroamérica.", lang: "EN · FR" },
-        { name: "Mateo Solano", role: "Socio, Familiar", bio: "Hijo de refugiados salvadoreños. Cada mes habla en clínicas comunitarias. Cree que el papeleo es un lenguaje de amor.", lang: "ES · EN · PT" }
+        { name: "Mateo Solano", role: "Socio, Familiar", bio: "Hijo de refugiados salvadoreños. Dirige clínicas mensuales en Jersey City y Filadelfia. Cree que el papeleo es un lenguaje de amor.", lang: "ES · EN · PT" }
       ]
     },
     stories: {
@@ -225,9 +225,9 @@ export const COPY: CopyData = {
       next: "Siguiente historia",
       story: "Historia",
       items: [
-        { quote: "Esperamos once años por nuestras green cards. Sera presentó nuestro caso y tuvimos aprobaciones en catorce meses. Mi madre lloró en el aeropuerto.", who: "R. y L. — Familiar", country: "Filipinas → California" },
-        { quote: "Soy investigador. Me habían dicho que mi trabajo no era lo suficientemente 'extraordinario'. Sera no estuvo de acuerdo. Mi O-1 fue aprobada al primer intento.", who: "Dr. P. — O-1", country: "India → Massachusetts" },
-        { quote: "Lucharon por mí cuando ICE llegó a las 5 a.m. Cancelación de remoción concedida. Sigo aquí, sigo trabajando, sigo criando a mis hijos.", who: "J. — Defensa de remoción", country: "Guatemala → Texas" },
+        { quote: "Esperamos once años por nuestras green cards. Sera presentó nuestro caso y tuvimos aprobaciones en catorce meses. Mi madre lloró en el aeropuerto.", who: "R. y L. — Familiar", country: "Filipinas → Nueva Jersey" },
+        { quote: "Soy investigador. Me habían dicho que mi trabajo no era lo suficientemente 'extraordinario'. Sera no estuvo de acuerdo. Mi O-1 fue aprobada al primer intento.", who: "Dr. P. — O-1", country: "India → Nueva York" },
+        { quote: "Lucharon por mí cuando ICE llegó a las 5 a.m. Cancelación de remoción concedida. Sigo aquí, sigo trabajando, sigo criando a mis hijos.", who: "J. — Defensa de remoción", country: "Guatemala → Nueva Jersey" },
         { quote: "Hice el juramento en marzo. Veintitrés años después de llegar. Enviaron flores a la ceremonia.", who: "Sra. O. — Naturalización", country: "Nigeria → Nueva York" }
       ]
     },
@@ -259,13 +259,13 @@ export const COPY: CopyData = {
       title: "Comienza tu caso hoy.",
       sub: "Llama, escribe, o visita. Respondemos cada consulta en menos de un día hábil.",
       addr_t: "Oficina principal",
-      addr: "1180 Mission St, Suite 400 · San Francisco, CA 94103",
+      addr: "1 Gateway Center, Suite 800 · Newark, NJ 07102",
       hours_t: "Horario",
-      hours: "Lun–Vie · 8:30 am – 6:30 pm PT",
+      hours: "Lun–Vie · 8:30 am – 6:30 pm ET",
       tel_t: "Teléfono",
-      tel: "+1 (415) 555-0140",
+      tel: "+1 (973) 555-0140",
       wa_t: "WhatsApp",
-      wa: "+1 (415) 555-0142",
+      wa: "+1 (973) 555-0142",
       mail_t: "Correo",
       mail: "hello@sera-immigration.law"
     },

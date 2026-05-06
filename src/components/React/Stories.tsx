@@ -2,6 +2,31 @@ import { useState, useEffect, type FC } from 'react';
 import type { LangCopy } from '../../types/index';
 import Eyebrow from './Eyebrow';
 
+const FLAGS: Record<string, string> = {
+  Philippines: '🇵🇭', Filipinas: '🇵🇭',
+  India: '🇮🇳',
+  Guatemala: '🇬🇹',
+  Nigeria: '🇳🇬',
+  Mexico: '🇲🇽', México: '🇲🇽',
+  Colombia: '🇨🇴',
+  Cuba: '🇨🇺',
+  China: '🇨🇳',
+  Vietnam: '🇻🇳',
+  Brazil: '🇧🇷', Brasil: '🇧🇷',
+  Peru: '🇵🇪', Perú: '🇵🇪',
+  Ecuador: '🇪🇨',
+  Honduras: '🇭🇳',
+  Haiti: '🇭🇹', Haití: '🇭🇹',
+  Jamaica: '🇯🇲',
+  'El Salvador': '🇸🇻',
+  'Dominican Republic': '🇩🇴',
+};
+
+function getFlag(country: string): string {
+  const origin = country.split('→')[0].trim();
+  return FLAGS[origin] ?? '';
+}
+
 interface Props {
   t: LangCopy;
 }
@@ -42,23 +67,29 @@ const Stories: FC<Props> = ({ t }) => {
             aria-live="polite"
             aria-atomic={false}
           >
-            {items.map((it, idx) => (
-              <figure
-                key={idx}
-                className="sera-quote"
-                role="group"
-                aria-roledescription="slide"
-                aria-label={`${idx + 1} of ${items.length}`}
-                aria-hidden={idx !== i}
-              >
-                <span className="sera-quote__mark" aria-hidden={true}>"</span>
-                <blockquote className="sera-quote__text">{it.quote}</blockquote>
-                <figcaption className="sera-quote__cap">
-                  <span className="sera-quote__who">{it.who}</span>
-                  <span className="sera-quote__country">{it.country}</span>
-                </figcaption>
-              </figure>
-            ))}
+            {items.map((it, idx) => {
+              const flag = getFlag(it.country);
+              return (
+                <figure
+                  key={idx}
+                  className="sera-quote"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label={`${idx + 1} of ${items.length}`}
+                  aria-hidden={idx !== i}
+                >
+                  <span className="sera-quote__mark" aria-hidden={true}>"</span>
+                  <blockquote className="sera-quote__text">{it.quote}</blockquote>
+                  <figcaption className="sera-quote__cap">
+                    <span className="sera-quote__who">{it.who}</span>
+                    <span className="sera-quote__country">
+                      {flag && <span aria-hidden={true}>{flag} </span>}
+                      {it.country}
+                    </span>
+                  </figcaption>
+                </figure>
+              );
+            })}
           </div>
           <div className="sera-stories__controls">
             <button type="button" className="sera-iconbtn" onClick={prev} aria-label={t.stories.prev}>

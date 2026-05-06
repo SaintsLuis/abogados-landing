@@ -33,7 +33,7 @@ const Footer: FC<Props> = ({ t }) => (
     </div>
     <div className="sera-footer__bar">
       <small>{t.footer.bar}</small>
-      <span className="sera-footer__bar-r">San Francisco · Los Angeles · Houston · Miami</span>
+      <span className="sera-footer__bar-r">Newark · New York · Philadelphia · Jersey City</span>
     </div>
   </footer>
 );

@@ -12,6 +12,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 import EvalModal from './EvalModal';
 import WhatsApp from './WhatsApp';
+import CookieBanner from './CookieBanner';
 
 function shade(hex: string, pct: number): string {
   const h = hex.replace("#", "");
@@ -54,6 +55,7 @@ function SeraLanding({ artboard = "desktop" }: Props) {
   const [evalOpen, setEvalOpen] = useState(false);
   const [openMobileNav, setOpenMobileNav] = useState(false);
 
+  // Update document lang + title when language changes
   useEffect(() => {
     try {
       document.documentElement.lang = lang;
@@ -61,7 +63,33 @@ function SeraLanding({ artboard = "desktop" }: Props) {
       const desc = document.querySelector('meta[name="description"]');
       if (desc) desc.setAttribute("content", t.hero.sub);
     } catch (_) {}
-  }, [lang]);
+  }, [lang, t]);
+
+  // Scroll reveal: add .sera-reveal to section heads, then observe
+  useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    const targets = document.querySelectorAll(
+      '.sera-section__head, .sera-promise__col, .sera-member, .sera-step'
+    );
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    targets.forEach(el => {
+      el.classList.add('sera-reveal');
+      obs.observe(el);
+    });
+
+    return () => obs.disconnect();
+  }, []);
 
   const accentStyle = useMemo(() => ({
     "--sera-gold": tweaks.accent,
@@ -90,6 +118,7 @@ function SeraLanding({ artboard = "desktop" }: Props) {
       <Footer t={t} />
       <EvalModal open={evalOpen} onClose={() => setEvalOpen(false)} t={t} />
       {tweaks.showWhatsApp && <WhatsApp t={t} />}
+      <CookieBanner lang={lang} />
     </div>
   );
 }

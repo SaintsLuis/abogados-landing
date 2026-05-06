@@ -1,7 +1,14 @@
 import type { FC } from 'react';
 import type { LangCopy } from '../../types/index';
 import Eyebrow from './Eyebrow';
-import Placeholder from './Placeholder';
+
+// Real Unsplash portraits — free, no API key required
+const TEAM_PHOTOS = [
+  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop&crop=face",
+];
 
 interface Props {
   t: LangCopy;
@@ -17,7 +24,14 @@ const Team: FC<Props> = ({ t }) => (
       {t.team.members.map((m, i) => (
         <article key={m.name} className="sera-member">
           <div className="sera-member__photo">
-            <Placeholder label={`portrait — ${m.name.split(" ")[0]}, warm B&W`} ratio="3/4" tone={i % 2 === 0 ? "navy" : "cream"} />
+            <div className="sera-ph" style={{ aspectRatio: '3/4', borderColor: 'rgba(201,169,110,0.18)' }}>
+              <img
+                src={TEAM_PHOTOS[i]}
+                alt={`Portrait of ${m.name}, ${m.role} at Sera Immigration Law`}
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
           </div>
           <div className="sera-member__meta">
             <span className="sera-member__role">{m.role}</span>

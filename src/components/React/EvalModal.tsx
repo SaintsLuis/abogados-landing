@@ -10,6 +10,7 @@ interface Props {
 
 const EvalModal: FC<Props> = ({ open, onClose, t }) => {
   const [step, setStep] = useState(0);
+  const [submitting, setSubmitting] = useState(false);
   const [data, setData] = useState({ help: "", country: "", state: "", name: "", email: "", phone: "", note: "" });
   const [emailErr, setEmailErr] = useState("");
   const sheetRef = useRef<HTMLDivElement>(null);
@@ -20,6 +21,7 @@ const EvalModal: FC<Props> = ({ open, onClose, t }) => {
   useEffect(() => {
     if (open) {
       setStep(0);
+      setSubmitting(false);
       setData({ help: "", country: "", state: "", name: "", email: "", phone: "", note: "" });
       setEmailErr("");
     }
@@ -63,12 +65,27 @@ const EvalModal: FC<Props> = ({ open, onClose, t }) => {
   const total = 3;
   const validEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((s || "").trim());
   const canNext = step === 0 ? !!data.help : step === 1 ? !!data.country.trim() : !!data.name.trim() && validEmail(data.email);
-  const goNext = () => {
+
+  const goNext = async () => {
     if (step === 2) {
       if (!validEmail(data.email)) {
         setEmailErr(t.eval.err_email);
         return;
       }
+      setSubmitting(true);
+      const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
+      if (endpoint) {
+        try {
+          await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(data),
+          });
+        } catch (_) {
+          // Submit silently — user sees success screen regardless
+        }
+      }
+      setSubmitting(false);
       setStep(3);
     } else if (canNext) {
       setStep(step + 1);
@@ -93,7 +110,7 @@ const EvalModal: FC<Props> = ({ open, onClose, t }) => {
           <span aria-hidden={true}>×</span>
         </button>
         {step < 3 ? (
-          <form onSubmit={e => { e.preventDefault(); goNext(); }} noValidate>
+          <form onSubmit={async e => { e.preventDefault(); await goNext(); }} noValidate>
             <div className="sera-modal__head">
               <Eyebrow>{`${t.eval.step_of} ${step + 1} ${t.eval.of} ${total}`}</Eyebrow>
               <h3 id={titleId} className="sera-modal__t">{t.eval.title}</h3>
@@ -218,12 +235,13 @@ const EvalModal: FC<Props> = ({ open, onClose, t }) => {
                 type="button"
                 className="sera-btn sera-btn--ghost"
                 onClick={() => step === 0 ? onClose() : setStep(step - 1)}
+                disabled={submitting}
               >
                 {step === 0 ? t.eval.close : t.eval.back}
               </button>
-              <button type="submit" className="sera-btn sera-btn--gold" disabled={!canNext}>
-                {step < 2 ? t.eval.next : t.eval.submit}
-                <span className="sera-btn__arrow" aria-hidden={true}>→</span>
+              <button type="submit" className="sera-btn sera-btn--gold" disabled={!canNext || submitting}>
+                {submitting ? '...' : (step < 2 ? t.eval.next : t.eval.submit)}
+                {!submitting && <span className="sera-btn__arrow" aria-hidden={true}>→</span>}
               </button>
             </div>
           </form>
