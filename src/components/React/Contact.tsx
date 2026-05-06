@@ -21,26 +21,14 @@ const ContactRow: FC<ContactRowProps> = ({ t, v, accent, href, external }) => (
   </div>
 );
 
-const FakeMap: FC = () => (
-  <svg className="sera-map" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden={true}>
-    <defs>
-      <pattern id="mapgrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-        <path d="M40 0 L0 0 0 40" fill="none" stroke="rgba(10,31,61,0.08)" strokeWidth="1" />
-      </pattern>
-    </defs>
-    <rect width="400" height="400" fill="#f4ede0" />
-    <rect width="400" height="400" fill="url(#mapgrid)" />
-    <path d="M-20 80 L420 60" stroke="rgba(10,31,61,0.18)" strokeWidth="2.5" />
-    <path d="M-20 160 L420 140" stroke="rgba(10,31,61,0.22)" strokeWidth="3.5" />
-    <path d="M-20 250 L420 230" stroke="rgba(10,31,61,0.18)" strokeWidth="2.5" />
-    <path d="M-20 330 L420 310" stroke="rgba(10,31,61,0.18)" strokeWidth="2.5" />
-    <path d="M70 -20 L60 420" stroke="rgba(10,31,61,0.18)" strokeWidth="2.5" />
-    <path d="M180 -20 L170 420" stroke="rgba(10,31,61,0.22)" strokeWidth="3.5" />
-    <path d="M290 -20 L300 420" stroke="rgba(10,31,61,0.18)" strokeWidth="2.5" />
-    <path d="M-20 380 L420 -20" stroke="rgba(201,169,110,0.55)" strokeWidth="4" />
-    <rect x="220" y="160" width="60" height="60" fill="rgba(10,31,61,0.06)" />
-    <rect x="80" y="240" width="80" height="60" fill="rgba(10,31,61,0.06)" />
-  </svg>
+// OpenStreetMap embed centered on 1 Gateway Center, Newark NJ (40.7357°N, 74.1724°W)
+const RealMap: FC<{ label: string }> = ({ label }) => (
+  <iframe
+    src="https://www.openstreetmap.org/export/embed.html?bbox=-74.1924%2C40.7207%2C-74.1524%2C40.7507&layer=mapnik&marker=40.7357%2C-74.1724"
+    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', display: 'block' }}
+    title={label}
+    loading="lazy"
+  />
 );
 
 interface Props {
@@ -51,6 +39,7 @@ interface Props {
 const Contact: FC<Props> = ({ t, onCTA }) => {
   const telDigits = (t.contact.tel || "").replace(/[^+\d]/g, "");
   const waDigits = (t.contact.wa || "").replace(/[^\d]/g, "");
+  const mapLabel = `Map showing Sera Immigration Law office at ${t.contact.addr}`;
   return (
     <section id="sera-contact" className="sera-section sera-contact" aria-labelledby="sera-contact-title">
       <div className="sera-contact__grid">
@@ -69,15 +58,8 @@ const Contact: FC<Props> = ({ t, onCTA }) => {
             {t.nav.cta}<span className="sera-btn__arrow" aria-hidden={true}>→</span>
           </button>
         </div>
-        <div className="sera-contact__map" role="img" aria-label={`Map showing office at ${t.contact.addr}`}>
-          <FakeMap />
-          <div className="sera-contact__pin" aria-hidden={true}>
-            <div className="sera-contact__pin-dot" />
-            <div className="sera-contact__pin-card">
-              <div className="sera-contact__pin-name">Sera Immigration Law</div>
-              <div className="sera-contact__pin-addr">1180 Mission St · SF</div>
-            </div>
-          </div>
+        <div className="sera-contact__map" aria-label={mapLabel}>
+          <RealMap label={mapLabel} />
         </div>
       </div>
     </section>

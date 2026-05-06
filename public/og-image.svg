@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a1f3d"/>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="rgba(201,169,110,0.06)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow1" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="rgba(201,169,110,0.12)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+
+  <!-- Corner marks -->
+  <path d="M56 56 L56 96 M56 56 L96 56" stroke="#c9a96e" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M1144 56 L1144 96 M1144 56 L1104 56" stroke="#c9a96e" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M56 574 L56 534 M56 574 L96 574" stroke="#c9a96e" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M1144 574 L1144 534 M1144 574 L1104 574" stroke="#c9a96e" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+  <!-- Logo mark -->
+  <path d="M120 400 L200 252 L280 400" stroke="#c9a96e" stroke-width="3" fill="none" stroke-linejoin="round"/>
+  <line x1="148" y1="344" x2="252" y2="344" stroke="#c9a96e" stroke-width="3"/>
+  <circle cx="200" cy="374" r="6" fill="#c9a96e"/>
+
+  <!-- Vertical rule -->
+  <line x1="316" y1="240" x2="316" y2="420" stroke="rgba(201,169,110,0.3)" stroke-width="1"/>
+
+  <!-- Firm name -->
+  <text x="348" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="600" fill="#f4ede0" letter-spacing="-2">Sera</text>
+  <text x="350" y="376" font-family="'Courier New', monospace" font-size="18" fill="rgba(244,237,224,0.55)" letter-spacing="6" text-transform="uppercase">IMMIGRATION LAW</text>
+
+  <!-- Tagline -->
+  <text x="600" y="476" font-family="Georgia, serif" font-size="28" fill="#c9a96e" text-anchor="middle" font-style="italic">Counsel for the next chapter.</text>
+
+  <!-- Divider -->
+  <line x1="160" y1="510" x2="1040" y2="510" stroke="rgba(201,169,110,0.25)" stroke-width="1"/>
+
+  <!-- Locations -->
+  <text x="600" y="554" font-family="'Courier New', monospace" font-size="15" fill="rgba(244,237,224,0.45)" text-anchor="middle" letter-spacing="4">NEWARK · NEW YORK · PHILADELPHIA · JERSEY CITY</text>
+</svg>
