@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Sera Immigration Law — Family, Employment & Asylum Counsel · Bilingual EN/ES",
+  description = "Sera Immigration Law: bilingual U.S. immigration counsel since 1998. Family petitions, employment visas (H-1B, O-1, EB-1), asylum, deportation defense, and citizenship. Free 24-hour case review."
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#0a1f3d" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content="immigration lawyer, abogado de inmigración, H-1B, O-1, green card, asylum, asilo, deportation defense, citizenship, San Francisco immigration attorney" />
+  <meta name="author" content="Sera Immigration Law, PC" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://sera-immigration.law/" />
+  <link rel="alternate" hreflang="en" href="https://sera-immigration.law/" />
+  <link rel="alternate" hreflang="es" href="https://sera-immigration.law/es/" />
+  <link rel="alternate" hreflang="x-default" href="https://sera-immigration.law/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sera Immigration Law" />
+  <meta property="og:title" content="Sera Immigration Law — Counsel for the next chapter" />
+  <meta property="og:description" content="Bilingual U.S. immigration counsel since 1998. Family, employment, asylum, defense, citizenship. Free 24-hour case review." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_US" />
+  <meta property="og:url" content="https://sera-immigration.law/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sera Immigration Law" />
+  <meta name="twitter:description" content="Bilingual U.S. immigration counsel since 1998. Free 24-hour case review." />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Sera Immigration Law, PC","description":"Bilingual U.S. immigration counsel: family, employment, asylum, deportation defense, citizenship.","url":"https://sera-immigration.law/","telephone":"+1-415-555-0140","email":"hello@sera-immigration.law","priceRange":"$$","areaServed":["US"],"availableLanguage":["en","es","pt","fr"],"address":{"@type":"PostalAddress","streetAddress":"1180 Mission St, Suite 400","addressLocality":"San Francisco","addressRegion":"CA","postalCode":"94103","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:30","closes":"18:30"}],"founder":"Camila Vargas","foundingDate":"1998","sameAs":[]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <slot />
+</body>
+</html>
