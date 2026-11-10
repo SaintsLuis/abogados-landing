@@ -32,7 +32,13 @@ const Footer: FC<Props> = ({ t }) => (
       </nav>
     </div>
     <div className="sera-footer__bar">
-      <small>{t.footer.bar}</small>
+      <small>
+        {t.footer.bar}
+        {' · '}Hecho por{' '}
+        <a href="https://santosvluis.vercel.app" target="_blank" rel="noopener noreferrer">
+          Luis Santos
+        </a>
+      </small>
       <span className="sera-footer__bar-r">Newark · New York · Philadelphia · Jersey City</span>
     </div>
   </footer>
